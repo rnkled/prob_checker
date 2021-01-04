@@ -138,5 +138,9 @@ export const Infos = styled.div`
     height: 5vh; 
     @media (max-width: 768px) {
         height: fit-content;
+        margin: 0px;
+        div{
+            margin: 4px 10px 4px 10px;
+        }
     }
 `

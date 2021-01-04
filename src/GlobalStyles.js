@@ -28,5 +28,9 @@ export default createGlobalStyle`
     text-decoration: none;
   }
 
+  button{
+    outline: none;
+  }
+
   `
 

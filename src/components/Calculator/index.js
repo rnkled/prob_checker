@@ -41,12 +41,10 @@ class Calculator extends React.Component {
     handleCheck(event) {
         let name = event.target.attributes.name.value;
         let value = event.target.checked;
-        console.log(value);
-        this.data[name] = parseInt(value);
+        this.data[name] = value;
     }
 
     calculate() {
-        console.log('Calculando...')
 
         this.sucess = 0;
         this.failures = 0;
