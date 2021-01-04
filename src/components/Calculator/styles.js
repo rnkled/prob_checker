@@ -136,5 +136,7 @@ export const Infos = styled.div`
     border-top: 1px solid lightgrey;
     font-weight: bold;  
     height: 5vh; 
-    
+    @media (max-width: 768px) {
+        height: fit-content;
+    }
 `
