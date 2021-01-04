@@ -9,7 +9,7 @@ function Content() {
         <Container>
             <Page>
                 <Divider />
-                <Text> # Você já sabe como usar isso né cara? Bem, Boas Roladas.</Text>
+                <Text> # Você já sabe como usar isso né cara? Bem, Bons Rolls.</Text>
                 <Analizer />
                 <Divider color_dash="#989898" half_margin={true} />
                 <Footer />

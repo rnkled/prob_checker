@@ -6,6 +6,7 @@ class Calculator extends React.Component {
 
     constructor(props) {
         super(props);
+        this.raw = 0;
         this.result = 0;
         this.sucess = 0;
         this.failures = 0;
@@ -27,6 +28,7 @@ class Calculator extends React.Component {
         this.calculate = this.calculate.bind(this);
         this.setResult = this.setResult.bind(this);
         this.showResult = this.showResult.bind(this);
+        this.parentUpdate = props.parentUpdate;
     }
 
     handleChange(event) {
@@ -76,6 +78,7 @@ class Calculator extends React.Component {
                 this.failures += 1;
             }
         }
+        this.raw = (this.sucess / this.data.quantidade);
         this.result = (this.sucess / this.data.quantidade) * 100;
         return true;
     }
@@ -83,10 +86,9 @@ class Calculator extends React.Component {
 
     showResult(validForm) {
         if (validForm) {
-            this.stringResult = <div><h3>Resultado:</h3> <h1>{this.result.toFixed(2)}%</h1></div>;
+            this.stringResult = <div><h3>Resultado:</h3> <h1>{this.result.toFixed(2)}%</h1><p style={{ 'display': 'none' }} className="hiddenData">{this.raw}</p></div>;
             this.stringSucess = <p>Rolagens que Atingiram: {this.sucess}</p>;
             this.stringFailure = <p>Falhas: {this.failures}</p>;
-
             this.setState({
                 result: this.result,
                 sucess: this.sucess,

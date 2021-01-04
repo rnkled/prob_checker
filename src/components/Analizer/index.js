@@ -9,8 +9,10 @@ export class Analizer extends React.Component {
         this.addCalc = this.addCalc.bind(this);
         this.removeCalc = this.removeCalc.bind(this);
         this.clearCalc = this.clearCalc.bind(this);
+        this.getTotal = this.getTotal.bind(this);
         this.state = {
-            calculators: 1
+            calculators: 1,
+            total: ''
         }
     }
 
@@ -26,13 +28,32 @@ export class Analizer extends React.Component {
         this.setState({ calculators: 1 });
     }
 
+    getTotal() {
+        let elements = document.getElementsByClassName("hiddenData");
+        if (elements.length > 0) {
+            let total = 1;
+            for (var i = 0; i < elements.length; i++) {
+                total *= parseFloat(elements.item(i).textContent);
+            }
+
+            this.setState({
+                total: `Total: ${(total * 100).toFixed(2)}%`
+            })
+            document.getElementById('total').textContent = `Total: ${(total * 100).toFixed(2)}%`;
+            document.getElementById("analizer").addEventListener("click", this.clearTotal);
+        }
+    }
+    clearTotal() {
+        document.getElementById('total').textContent = 'R.Total';
+    }
+
     render() {
         let calculatorsArray = [];
-        for (let i = 0; i < this.state.calculators; i++) {
-            calculatorsArray.push(<Calculator key={i + 1} index={i + 1} />)
+        for (let i = 1; i < this.state.calculators + 1; i++) {
+            calculatorsArray.push(<Calculator key={i} index={i} parentUpdate={this.getTotal} />)
         }
         return (
-            <Container>
+            <Container id="analizer">
                 <Line>
                     <Button onClick={this.addCalc}>Add</Button>
                     <Button onClick={this.clearCalc} a_color="red">Clear All</Button>
@@ -40,6 +61,9 @@ export class Analizer extends React.Component {
                 {calculatorsArray}
                 <Line line_top={true}>
                     <Button onClick={this.removeCalc}>Remove</Button>
+                    <div>
+                        <Button id="total" onClick={this.getTotal}>R.Total</Button>
+                    </div>
                 </Line>
             </Container>
         )

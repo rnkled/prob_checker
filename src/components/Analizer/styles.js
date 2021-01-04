@@ -22,6 +22,11 @@ export const Line = styled.div`
     @media (max-width: 768px){
         height: 8vh;
     }
+
+    h1{
+        color: black;
+        margin: 0 10px 0 10px;
+    }
 `;
 
 export const Button = styled.button`
