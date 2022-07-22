@@ -8,7 +8,7 @@ class Calculator extends React.Component {
     constructor(props) {
         super(props);
         this.data = {
-            quantidade: 10000,
+            quantidade: 100000,
             numero_alvo: null,
             expressao: null
         };
@@ -107,9 +107,9 @@ class Calculator extends React.Component {
                 <Line>
                     <Column>
                         <Line>
-                            <Field style={{width: '100%'}}>
+                            <Field style={{width: '100%', justifyContent: 'flex-start'}}>
                                 <label>Expressão:</label>
-                                <input style={{width: '100%'}} type="input" name="expressao" onChange={this.handleChange}></input>
+                                <input style={{width: '100%', maxWidth:'60vw'}} type="input" name="expressao" onChange={this.handleChange}></input>
                             </Field>
                         </Line>
                         <Line>
