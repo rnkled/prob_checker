@@ -52,3 +52,24 @@ export const Text = styled.p`
         top: 10%;
     }
 `;
+
+export const SubText = styled(Text)`
+    font-size: 20px;
+    margin: 0.6vh;
+    margin-left: 50px;
+`
+
+export const Row = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin-bottom: 1vh;
+`
+
+export const Select = styled.select`
+    width: 80px;
+    text-align: center;
+    margin-left: 10px;
+    background-color: #fff8;
+    border-radius: 10px;
+`
